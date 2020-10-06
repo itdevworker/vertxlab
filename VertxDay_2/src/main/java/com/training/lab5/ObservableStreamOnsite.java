@@ -21,7 +21,7 @@ public class ObservableStreamOnsite {
         employee2.setId(1);
         employee2.setName("Ronny");
         employee2.setCity("Mumbai");
-        employee2.setOnsite(true);
+        employee2.setOnsite(false);
         empList.add(employee2);
         
         employeeUpperCase(empList);
@@ -31,8 +31,9 @@ public class ObservableStreamOnsite {
         Observable
         .fromIterable(empList)
         .filter(employee -> {
+        	System.out.println("Actual Employee List: " + employee.getName().toUpperCase() + " " + employee.getCity().toUpperCase());
         	if(employee.isOnsite()) {
-        		System.out.println("filtering " + employee);
+        		System.out.println("Onsite Employee List: " + employee.getName().toUpperCase() + " " + employee.getCity().toUpperCase());
         		return employee != null;
         	}
 			return false;
